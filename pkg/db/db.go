@@ -35,7 +35,7 @@ func NewMongoConnection(cfg *config.AppConfig) Connection {
 	err = client.Ping(ctx, readpref.Primary())
 
 	if err != nil {
-		log.Fatal("MongoDB connection error", err)
+		log.Fatal("MongoDB connection error, ", err)
 	}
 
 	fmt.Println("INFO: Connected to database.")
