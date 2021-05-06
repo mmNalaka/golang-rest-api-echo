@@ -32,7 +32,7 @@ func ValidateSignupRequest(c echo.Context) (*domain.User, *Error) {
 		validationErrors = append(validationErrors, "Username must be 3 charactors long")
 	}
 	if len(signupRequest.Name) < 2 {
-		validationErrors = append(validationErrors, "Password must be 2 charactors long")
+		validationErrors = append(validationErrors, "Name must be 2 charactors long")
 	}
 	if len(validationErrors) > 0 {
 		return nil, ValidationError(validationErrors)

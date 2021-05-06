@@ -27,7 +27,7 @@ func NewUserService(cfg *config.AppConfig, userProvider data.IUserProvider) *Use
 	}
 }
 
-func (u UserService) CreateAccount(user *domain.User) *models.Error {
+func (u UserService) Signup(user *domain.User) *models.Error {
 	userExist, err := u.userProvider.UsernameExists(user.UserName)
 
 	if err != nil {
@@ -90,7 +90,7 @@ func (u UserService) Login(user *domain.User) (string, *models.Error) {
 		return "", &models.Error{
 			Code:    http.StatusBadRequest,
 			Name:    "INVALID_LOGIN",
-			Message: "Invalid username and password",
+			Message: "1 Invalid username and password",
 		}
 	}
 
@@ -99,7 +99,7 @@ func (u UserService) Login(user *domain.User) (string, *models.Error) {
 		return "", &models.Error{
 			Code:    http.StatusBadRequest,
 			Name:    "INVALID_LOGIN",
-			Message: "Invalid username and password",
+			Message: "2 Invalid username and password",
 		}
 	}
 
